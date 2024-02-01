@@ -61,7 +61,7 @@ while(1):
         
             shape=shape_detection(i)
             if shape in ['rectangle','square','circle','triangle']:
-             Area=cv2.contourArea(i)
+             
              color=colour_detector(frame,i) 
              epsilon = 0.001 * cv2.arcLength(i, True)
              approx = cv2.approxPolyDP(i, epsilon, True)
@@ -69,7 +69,7 @@ while(1):
              cX = int(M["m10"] /( M["m00"]))
              cY = int(M["m01"] /( M["m00"]))
              cv2.drawContours(frame,[approx], -1, (0, 255, 0), 3) 
-             cv2.putText(frame, f'shape:{shape} color:{color} Size:{Area}',(cX , cY ), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
+             cv2.putText(frame, f'shape:{shape} color:{color}',(cX , cY ), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
              cv2.imshow('FRAME',frame)
              cv2.waitKey(1)
     if cv2.waitKey(1) & 0xFF==ord('q'):  #clicking q for closing camera
