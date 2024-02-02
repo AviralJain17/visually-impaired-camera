@@ -69,7 +69,9 @@ while(1):
              cX = int(M["m10"] /( M["m00"]))
              cY = int(M["m01"] /( M["m00"]))
              cv2.drawContours(frame,[approx], -1, (0, 255, 0), 3) 
-             cv2.putText(frame, f'shape:{shape} color:{color}',(cX , cY ), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
+             area=cv.contourArea(i)
+
+             cv2.putText(frame, f'shape:{shape} color:{color},size:{area}',(cX-40 , cY ), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
              cv2.imshow('FRAME',frame)
              cv2.waitKey(1)
     if cv2.waitKey(1) & 0xFF==ord('q'):  #clicking q for closing camera
