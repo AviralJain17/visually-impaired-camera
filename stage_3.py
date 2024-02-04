@@ -83,7 +83,7 @@ while(1):
                     
                     cv2.putText(frame, f'shape:{shape} color:{color},size{area},distance :{distance}cm',
                                 (cX - 200, cY), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
-        if m > 15:
+        if m > 29:
             instruction =f'obstacle at {m}cm'
 
         else:
