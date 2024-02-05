@@ -1,7 +1,5 @@
 import cv2
 import numpy as np
-import matplotlib.pyplot as plt
-from scipy.spatial import distance as dist
 #for detecting the shape
 def shape_detection(cont):
     
@@ -37,7 +35,7 @@ def colour_detector(frame,cont):
     color=[blue,green,red]
     color_l=['blue','green','red']
     for i in range(3):
-         d=dist.euclidean(color[i], mean)
+         d = np.linalg.norm(np.array(color[i]) - np.array(mean))
          if d<min_d_color[0]:
             min_d_color[0]=d
             min_d_color[1]=color_l[i]
